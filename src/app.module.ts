@@ -1,13 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TasksModule } from './tasks/tasks.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { TaskRepository } from './tasks/task.repository';
-import { TasksService } from './tasks/tasks.service';
-import { TasksController } from './tasks/tasks.controller';
 import { AuthModule } from './auth/auth.module';
+import { PassportModule } from '@nestjs/passport';
+import { AuthService } from './auth/auth.service';
 
 @Module({
   imports: [
+    PassportModule,
     TasksModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
